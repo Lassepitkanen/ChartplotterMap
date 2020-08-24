@@ -1,7 +1,7 @@
 function loadMap() {
-    var mapData = loadData()
+    const mapData = loadData();
 
-    map = new Microsoft.Maps.Map(document.getElementById('myMap'), { 
+    const map = new Microsoft.Maps.Map(document.getElementById('myMap'), { 
         center: new Microsoft.Maps.Location(mapData[0].GpsLat, mapData[0].GpsLng),
         mapTypeId: Microsoft.Maps.MapTypeId.aerial,
         zoom: 17

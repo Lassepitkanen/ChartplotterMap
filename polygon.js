@@ -1,14 +1,15 @@
 function getPolygon(mapData, map) {
-    for (let i = 0; i < mapData.length; i++) {
-        let rect = [];
+    const len = mapData.length;
+    for (let i = 0; i < len; ++i) {
+        const rect = [];
         //polygon around location
         rect.push(new Microsoft.Maps.Location(mapData[i].GpsLat - 0.000025, mapData[i].GpsLng - 0.00005));
         rect.push(new Microsoft.Maps.Location(mapData[i].GpsLat - 0.000025, mapData[i].GpsLng + 0.00005));
         rect.push(new Microsoft.Maps.Location(mapData[i].GpsLat + 0.000025, mapData[i].GpsLng + 0.00005));
         rect.push(new Microsoft.Maps.Location(mapData[i].GpsLat + 0.000025, mapData[i].GpsLng - 0.00005));
     
-        let color = assignColor(mapData[i].WaterDepth);
-        let polygon = new Microsoft.Maps.Polygon(rect, {
+        const color = assignColor(mapData[i].WaterDepth);
+        const polygon = new Microsoft.Maps.Polygon(rect, {
             fillColor: color,
             strokeThickness: 0
         });
